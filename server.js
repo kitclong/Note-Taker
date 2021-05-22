@@ -5,7 +5,7 @@ const fs = require('fs');
 
 //Set up Express App
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8081;
 
 let notes = require('./db/db.json');
 
@@ -54,5 +54,6 @@ app.delete('/api/notes/:id', (req, res) => {
     });
 });
 
+//=========================================================================================
 //Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening of PORT: ${PORT}`));
